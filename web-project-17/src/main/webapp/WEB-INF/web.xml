@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>WebProject10</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+
+ 	<listener>
+		<display-name>ConnectionContexListener</display-name>
+		<listener-class>by.htp.ex.controller.filter.ConnectionContexListener</listener-class>
+	</listener> 
+	
+	<servlet>
+		<servlet-name>Controller</servlet-name>
+		<servlet-class>by.htp.ex.controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/controller</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<display-name>LocalFilter</display-name>
+		<filter-name>LocalFilter</filter-name>
+		<filter-class>by.htp.ex.controller.filter.LocalFilter</filter-class>
+
+	</filter>
+	<filter-mapping>
+		<filter-name>LocalFilter</filter-name>
+		<url-pattern>/controller</url-pattern>
+	</filter-mapping>
+<filter>
+		<display-name>RequestLoggingFilter</display-name>
+		<filter-name>RequestLoggingFilter</filter-name>
+		<filter-class>by.htp.ex.controller.filter.RequestLoggingFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>RequestLoggingFilter</filter-name>
+		<url-pattern>/controller</url-pattern>
+	</filter-mapping>
+
+</web-app>
